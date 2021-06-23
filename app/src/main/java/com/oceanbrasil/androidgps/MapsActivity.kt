@@ -3,6 +3,7 @@ package com.oceanbrasil.androidgps
 import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.location.LocationManager
 import android.os.Bundle
 import android.widget.Toast
@@ -12,6 +13,7 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.CircleOptions
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.oceanbrasil.androidgps.databinding.ActivityMapsBinding
@@ -99,6 +101,22 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 CameraUpdateFactory
                     .newLatLngZoom(latLng, 17f)
             )
+
+            mMap.addCircle(
+                CircleOptions()
+                    .center(latLng)
+                    .radius(50.0)
+                    .strokeColor(Color.RED)
+                    .fillColor(Color.BLUE)
+            )
+
+            // Outras funções para desenhar no mapa (consulte documentação)
+//            mMap.addPolygon()
+//            mMap.addPolyline()
+//            mMap.addMarker()
+//            mMap.addTileOverlay()
+//            mMap.addGroundOverlay()
+
         }
 
     }
